@@ -2,11 +2,11 @@
 CREATE TABLE IF NOT EXISTS pile_driving_record (
     entry_no INTEGER PRIMARY KEY AUTOINCREMENT,
     pile_field_id INTEGER NOT NULL,
-    pile_number TEXT NOT NULL,                       -- Номер сваи
+    pile_number TEXT NOT NULL,                      -- Номер сваи
     project_id INTEGER NOT NULL,                    -- ID проекта
     start_time DATETIME NOT NULL,                   -- Время начала забивки
     end_time DATETIME,                              -- Время окончания забивки
-    fact_pile_head REAL                             -- Абс. отметка верха головы сваи, факт
+    fact_pile_head INTEGER                          -- Абс. отметка верха головы сваи, факт, мм
     blows_count INTEGER,                            -- Количество ударов
     recorded_by INTEGER NOT NULL,                   -- ID оператора/инженера
     notes TEXT,                                     -- Дополнительные заметки

@@ -62,3 +62,28 @@ func (h *Handler) GetPileDrivingRecord(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
+func (h *Handler) PrintOutPileDrivingRecord(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	query := r.URL.Query()
+	projectIdTxt := query.Get("project_id")
+	if projectIdTxt == "" {
+		http.Error(w, "Missing project id", http.StatusBadRequest)
+		return
+	}
+	projectId, err := strconv.Atoi(projectIdTxt)
+	if err != nil {
+		http.Error(w, "Missing project id", http.StatusBadRequest)
+		return
+	}
+	if err := h.srv.PrintOutPileDrivingRecord(projectId); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(map[string]string{"status": "success"})
+
+}

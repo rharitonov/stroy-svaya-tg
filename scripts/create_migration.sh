@@ -6,12 +6,12 @@ if [ -z "$NAME" ]; then
   exit 1
 fi
 
-COUNT=$(ls migrations/*.up.sql | wc -l | awk '{print $1}')
-NEXT=$(printf "%06d" $((COUNT + 1)))
+COUNT=$(ls db/migrations/*.up.sql | wc -l | awk '{print $1}')
+NEXT=$(printf "%03d" $((COUNT + 1)))
 
-echo "-- up" > "migrations/${NEXT}_${NAME}.up.sql"
-echo "-- down" > "migrations/${NEXT}_${NAME}.down.sql"
+echo "-- up" > "db/migrations/${NEXT}_${NAME}.up.sql"
+echo "-- down" > "db/migrations/${NEXT}_${NAME}.down.sql"
 
 echo "Созданы файлы:"
-echo "- migrations/${NEXT}_${NAME}.up.sql"
-echo "- migrations/${NEXT}_${NAME}.down.sql"
+echo "- db/migrations/${NEXT}_${NAME}.up.sql"
+echo "- db/migrations/${NEXT}_${NAME}.down.sql"

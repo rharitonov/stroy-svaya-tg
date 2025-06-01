@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS pile_in_field (
     x_coord TEXT,                           -- Координата X
     y_coord TEXT,                           -- Координата Y
     z_coord TEXT,                           -- Координата Z (если нужна)
-    design_pile_head REAL,                   -- Абс. отметка головы сваи по проекту
-    design_pile_tip REAL,                    -- Абс. отметка острия сваи по проекту
+    design_pile_head INTEGER,               -- Абс. отметка головы сваи по проекту, мм
+    design_pile_tip INTEGER,                -- Абс. отметка острия сваи по проекту, мм
 
     FOREIGN KEY (pile_field_id) REFERENCES pile_field(id),
     UNIQUE (pile_field_id, pile_number)     -- Уникальный номер сваи в пределах поля

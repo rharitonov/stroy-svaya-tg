@@ -9,7 +9,7 @@ type Config struct {
 func Load() *Config {
 	return &Config{
 		ServerAddress: ":8080",
-		DatabasePath:  "./db/stoy-svaya.db",
-		DatabaseUrl:   "sqlite://db/stoy-svaya.db",
+		DatabasePath:  "./db/stroy-svaya.db",
+		DatabaseUrl:   "sqlite://db/stroy-svaya.db",
 	}
 }

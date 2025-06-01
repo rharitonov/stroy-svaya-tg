@@ -7,6 +7,6 @@ type PileDrivingRecordLine struct {
 	PileNumber   string    `json:"pile_number"`
 	PileFieldId  int       `json:"pile_field_id"`
 	StartDate    time.Time `json:"start_date"`
-	FactPileHead float32   `json:"fact_pile_head"`
+	FactPileHead int       `json:"fact_pile_head"`
 	RecordedBy   string    `json:"recorded_by"`
 }
